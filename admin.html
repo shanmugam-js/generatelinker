@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="card">
+  <h2>Link Generator</h2>
+
+  <input id="num" placeholder="WhatsApp number (with country code)">
+  <textarea id="msg" placeholder="Message to type"></textarea>
+
+  <button class="btn-generate" onclick="generate()">Generate Link</button>
+
+  <div id="panel" style="display:none">
+    <input id="plink" readonly>
+    <button class="btn-reveal" onclick="reveal()">Reveal</button>
+    <button class="btn-reset" onclick="reset()">Reset</button>
+  </div>
+</div>
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
