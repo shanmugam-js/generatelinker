@@ -31,6 +31,8 @@ async function generate() {
   });
 
   plink.value = location.origin + "/photo.html?img=" + prankId;
+  panel.style.display = "block";
+
 }
 
 async function reveal() {
