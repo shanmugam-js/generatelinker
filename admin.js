@@ -30,13 +30,7 @@ async function generate() {
     reveal: false
   });
 
-  const REPO_NAME = "whatsapp-link-tool";
-
-plink.value =
-  "https://shanmugam-js.github.io/" +
-  REPO_NAME +
-  "/photo.html?img=" +
-  prankId;
+  plink.value = location.origin + "/photo.html?img=" + prankId;
 }
 
 async function reveal() {
