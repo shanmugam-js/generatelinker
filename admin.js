@@ -30,7 +30,7 @@ async function generate() {
     reveal: false
   });
 
-  plink.value = location.origin + "/photo.html?img=" + prankId;
+  plink.value = location.origin + "/generatelinker/photo.html?img=" + prankId;
   panel.style.display = "block";
 
 }
