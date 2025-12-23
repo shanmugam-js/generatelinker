@@ -30,10 +30,12 @@ async function generate() {
     reveal: false
   });
 
-  plink.value =
-  location.origin +
-  location.pathname.replace("admin.html", "") +
-  "photo.html?img=" +
+  const REPO_NAME = "whatsapp-link-tool";
+
+plink.value =
+  "https://shanmugam-js.github.io/" +
+  REPO_NAME +
+  "/photo.html?img=" +
   prankId;
 }
 
