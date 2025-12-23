@@ -22,7 +22,7 @@ async function generate() {
   const number = num.value.trim();
   const message = msg.value.trim();
   prankId = uid();
-  localStorge.setItem("prankId",prankId);
+  localStorage.setItem("prankId",prankId);
 
   await supabaseClient.from("pranks").insert({
     id: prankId,
