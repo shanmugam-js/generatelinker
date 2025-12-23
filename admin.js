@@ -16,12 +16,13 @@ function uid() {
   return Math.random().toString(36).slice(2);
 }
 
-let prankId = "";
+let prankId = localStorage.getItem("prankId")||"";
 
 async function generate() {
   const number = num.value.trim();
   const message = msg.value.trim();
   prankId = uid();
+  localStorge.setItem("prankId",prankId);
 
   await supabaseClient.from("pranks").insert({
     id: prankId,
@@ -36,15 +37,39 @@ async function generate() {
 }
 
 async function reveal() {
-  if (!prankId) return;
-  await supabaseClient.from("pranks")
+  if (!prankId) {
+    alert("No active prank found. Generate link first.");
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("pranks")
     .update({ reveal: true })
     .eq("id", prankId);
+
+  if (error) {
+    console.error(error);
+    alert("Reveal failed");
+  } else {
+    alert("Reveal sent successfully");
+  }
 }
 
 async function reset() {
-  if (!prankId) return;
-  await supabaseClient.from("pranks")
+  if (!prankId) {
+    alert("No active prank to reset");
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("pranks")
     .update({ reveal: false })
-    .eq("id", prankId);
+    .eq("id", prankId);
+
+  if (error) {
+    console.error(error);
+    alert("Reset failed");
+  } else {
+    alert("Reset done");
+  }
 }
