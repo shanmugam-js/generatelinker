@@ -1,3 +1,5 @@
+
+
 const { createClient } = supabase;
 
 const supabaseClient = createClient(
@@ -28,8 +30,11 @@ async function generate() {
     reveal: false
   });
 
-  plink.value = location.origin + "/photo.html?img=" + prankId;
-  panel.style.display = "block";
+  plink.value =
+  location.origin +
+  location.pathname.replace("admin.html", "") +
+  "photo.html?img=" +
+  prankId;
 }
 
 async function reveal() {
